@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Search</title>
+</head>
+<body>
+    <h2>Product Search</h2>
+    <form method="get" action="/search">
+        <input type="text" name="search" placeholder="Search by name or category">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if products is not none %}
+        {% if products %}
+            <ul>
+            {% for product in products %}
+                <li>{{ product[1] }} - {{ product[2] }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
